@@ -22,6 +22,9 @@ The app tells you when a new version is available.
 - Name your macros, e.g. "open spotify automated"
 - Global hotkeys (default **F6**) that work in any window
 - Runs in the background from the system tray
+- **Idle mode**: one switch (in the window or the tray menu) that turns everything off: hotkeys, clicking and macros
+- Updates itself: click **Yes** on the update prompt and it installs the new version and restarts
+- Never starts by itself with Windows or Linux
 
 ### Macro syntax
 

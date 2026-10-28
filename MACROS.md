@@ -122,6 +122,7 @@ After editing, click **Add** for a new macro, or select one in the list and clic
 
 | Problem | Try |
 |---------|-----|
+| Nothing happens at all, hotkeys do nothing | **Idle mode** is on (the title bar says "Idle"). Untick it at the bottom of the window or in the tray menu. |
 | "Unknown key …" when saving | Check the spelling against the tables above. Steps are separated by spaces, so `left click` is two steps; write `left-click`. |
 | Some keys are skipped | Raise **Delay**, or add `{200}` pauses where the app is busy. |
 | A game ignores the keys | Raise **Hold** to 50–100 ms. Some games block simulated input entirely. |
