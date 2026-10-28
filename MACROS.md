@@ -129,7 +129,7 @@ On Linux with Wayland, clicks are recorded without a position (Wayland hides whe
 
 ## Only in a specific app
 
-Set **Only in app** on a macro (or on the clicker, in the Clicker tab) to limit it to one app. Pick it from the list of open apps, type its name (like "spotify"), or type part of its window title.
+Tick **Only in app** on a macro (or on the clicker, in the Clicker tab) and choose the app: pick it from the list of open apps, type its name (like "spotify"), or type part of its window title. Untick it to run in any app again; the app you chose is remembered.
 
 - A macro only starts while that app is focused, and stops if you switch away.
 - The clicker pauses while another app is focused and continues when you come back.
@@ -147,7 +147,7 @@ You can also push the mouse into **any corner of the screen** while something ru
 |---------|--------------|
 | **Name** | Your label for the macro, e.g. "open spotify automated". To rename, double-click the name in the list. |
 | **Hotkey** | The key that starts the macro, e.g. `F8` or `Ctrl+F8`. Press it again to stop a running macro. Can be left empty to keep a macro without a hotkey for now. |
-| **Only in app** | Limit the macro to one app (see above). Leave empty for any app. |
+| **Only in app** | Tick it and choose an app to limit the macro to that app (see above). Unticked, it runs in any app. |
 | **Mode** | **Play once**, **Repeat N times** (set **Times**), or **Loop until stopped** (until you press the hotkey again). |
 | **Delay (ms)** | Wait between steps. Raise it if an app misses steps. |
 | **Hold (ms)** | How long each key stays pressed. Some games ignore very short presses; try 50–100 ms. |
