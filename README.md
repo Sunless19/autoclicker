@@ -21,6 +21,7 @@ The app tells you when a new version is available.
 - Macros on a hotkey that mix keys, mouse clicks at fixed positions and pauses, e.g. `F7` → `V E L`, or `F8` → `V Click(500,300) {200} E`. Play them once, N times or on a loop.
 - Name your macros, e.g. "open spotify automated"
 - **Record** macros: do the actions yourself, press Esc, and the steps are written for you
+- Optional **list view** to build macros step by step with simple forms, no typing needed
 - **Only in app**: limit a macro or the clicker to one app
 - Advanced steps: scroll, hold keys, hold or drag the mouse
 - Global hotkeys (default **F6**) that work in any window

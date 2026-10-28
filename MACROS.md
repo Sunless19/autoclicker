@@ -4,6 +4,8 @@ A **macro** is a list of steps (key presses, mouse clicks, pauses, typed text) t
 
 > **Quickest start: record it.** Click **Record** in the Macros tab, do the actions yourself (press keys, click, scroll), then press **Esc**. AutoClicker writes the steps for you, pauses included. See [Recording a macro](#recording-a-macro).
 
+> **Prefer clicking to typing?** Click **Show as list** under "Steps" to edit a macro as a list of steps instead (see [The list view](#the-list-view)).
+
 ## The basics
 
 - **Separate steps with spaces.** Each word is one step, played left to right.
@@ -115,6 +117,21 @@ These are also listed in the **Advanced** tab, where **Insert** adds one to your
 Anything still held when a macro ends or is stopped is let go automatically, so a key or button can never stay stuck.
 
 Example, select several files with Shift held: `Click(400,300) Hold(Shift) Click(400,500) Release(Shift)`
+
+## The list view
+
+Under **Steps** in the Macros tab, click **Show as list** to see the macro as a list, one step per row in plain words ("Click at (500, 300)", "Pause 0.5 s", …). Click **Show as text** to go back; both views edit the same macro, and AutoClicker remembers which one you used.
+
+- **Add step** opens a menu of step types, each with a small form. It's added after the selected step, or at the end.
+  - **Key or combo:** type it, or click **Press keys…** and press the keys.
+  - **Click:** choose the button, double click, any keys to hold, and a position. **Pick…** lets you click the spot on screen.
+  - **Pause** is in seconds, and **Scroll** takes a direction and how far.
+- **Edit** a step by double-clicking it (or select it and press Enter).
+- **Duplicate**, **Delete** (or the Delete key), and **↑ / ↓** to move a step. You can also drag rows with the mouse.
+- **Undo** (or Ctrl+Z) takes back the last change.
+- Steps that aren't valid are shown in red, with the reason.
+
+**Record**, **Add click…** and the **Insert** buttons in the Advanced tab add their steps to the list too.
 
 ## Recording a macro
 
