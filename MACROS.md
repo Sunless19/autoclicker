@@ -2,6 +2,8 @@
 
 A **macro** is a list of steps (key presses, mouse clicks, pauses, typed text) that AutoClicker plays when you press its hotkey. This guide shows how to write the **Steps** box in the **Macros** tab, starting from a real example.
 
+> **Quickest start: record it.** Click **Record** in the Macros tab, do the actions yourself (press keys, click, scroll), then press **Esc**. AutoClicker writes the steps for you, pauses included. See [Recording a macro](#recording-a-macro).
+
 ## The basics
 
 - **Separate steps with spaces.** Each word is one step, played left to right.
@@ -53,7 +55,7 @@ That macro works as written, but real apps often need a moment to react. Three c
 | `Enter` (or `Return`), `Tab`, `Space`, `Esc` (or `Escape`), `Backspace` | |
 | `Delete` (`Del`), `Insert` (`Ins`), `Home`, `End`, `PageUp` (`PgUp`), `PageDown` (`PgDn`) | |
 | `Up`, `Down`, `Left`, `Right` | Arrow keys |
-| `Shift`, `Ctrl`, `Alt`, `Win`, `CapsLock` | Pressed on their own |
+| `Shift`, `Ctrl`, `Alt`, `Win`, `CapsLock`, `Pause` | Pressed on their own |
 | `-` `.` `,` `/` `;` `'` `[` `]` `=` … | Punctuation: write the character itself |
 
 ### Key combos
@@ -96,12 +98,56 @@ On Linux under Wayland, only characters on a US keyboard can be typed this way.
 
 Positions are screen pixels: `(0,0)` is the top-left corner of your main screen, x grows to the right and y grows downward. With several monitors, screens to the left or above can have negative positions.
 
+### Advanced steps
+
+These are also listed in the **Advanced** tab, where **Insert** adds one to your macro.
+
+| Write | Does |
+|-------|------|
+| `Scroll(-3)` | Scroll the mouse wheel: negative scrolls down, positive up (in notches) |
+| `HScroll(2)` | Scroll sideways: positive right, negative left |
+| `Hold(Shift)` | Press a key and keep it held during the following steps |
+| `Release(Shift)` | Let go of a key held with **Hold** |
+| `MouseDown(500,300)` or `MouseDown` | Press the left mouse button (at a position, or where the pointer is) and keep it held |
+| `MouseUp(700,300)` or `MouseUp` | Let go of the left mouse button |
+| `Drag(500,300,700,300)` | Press at the first position, move smoothly to the second, and let go |
+
+Anything still held when a macro ends or is stopped is let go automatically, so a key or button can never stay stuck.
+
+Example, select several files with Shift held: `Click(400,300) Hold(Shift) Click(400,500) Release(Shift)`
+
+## Recording a macro
+
+1. In the **Macros** tab, click **Record**. Your hotkeys pause while recording, so pressing them gets recorded instead of triggering.
+2. Do what you want the macro to do: press keys and combos, click, double-click, drag, scroll.
+3. Press **Esc** (or click **Stop**). The steps appear in the Steps box, added after anything already there.
+4. Check them, adjust if you like, then click **Add** or **Save changes**.
+
+Pauses longer than about 0.15 s are kept as `{…}` steps, so the macro plays back at your pace; delete them to make it faster. Clicks are recorded at their exact screen positions. Clicks on AutoClicker's own window (like the Stop button) are left out.
+
+On Linux with Wayland, clicks are recorded without a position (Wayland hides where the mouse is). On X11 the mouse wheel isn't recorded.
+
+## Only in a specific app
+
+Set **Only in app** on a macro (or on the clicker, in the Clicker tab) to limit it to one app. Pick it from the list of open apps, type its name (like "spotify"), or type part of its window title.
+
+- A macro only starts while that app is focused, and stops if you switch away.
+- The clicker pauses while another app is focused and continues when you come back.
+- On Linux with Wayland, the focused app can't be detected, so limited macros won't run there.
+
+## Emergency stop
+
+Press **Ctrl+Alt+P** (change it in **Settings**) to stop clicking and every macro at once. AutoClicker also switches on **Idle mode**, so nothing starts again until you untick it. The emergency stop key works even in Idle mode.
+
+You can also push the mouse into **any corner of the screen** while something runs, which does the same. Corners that a macro or the clicker moves to itself don't count. This can be turned off in Settings, and isn't available on Wayland.
+
 ## The other settings
 
 | Setting | What it does |
 |---------|--------------|
 | **Name** | Your label for the macro, e.g. "open spotify automated". To rename, double-click the name in the list. |
-| **Hotkey** | The key that starts the macro, e.g. `F8` or `Ctrl+F8`. Press it again to stop a running macro. |
+| **Hotkey** | The key that starts the macro, e.g. `F8` or `Ctrl+F8`. Press it again to stop a running macro. Can be left empty to keep a macro without a hotkey for now. |
+| **Only in app** | Limit the macro to one app (see above). Leave empty for any app. |
 | **Mode** | **Play once**, **Repeat N times** (set **Times**), or **Loop until stopped** (until you press the hotkey again). |
 | **Delay (ms)** | Wait between steps. Raise it if an app misses steps. |
 | **Hold (ms)** | How long each key stays pressed. Some games ignore very short presses; try 50–100 ms. |
@@ -122,7 +168,9 @@ After editing, click **Add** for a new macro, or select one in the list and clic
 
 | Problem | Try |
 |---------|-----|
-| Nothing happens at all, hotkeys do nothing | **Idle mode** is on (the title bar says "Idle"). Untick it at the bottom of the window or in the tray menu. |
+| Nothing happens at all, hotkeys do nothing | **Idle mode** is on (the title bar says "Idle"), for example after an emergency stop. Untick it at the bottom of the window or in the tray menu. |
+| A macro does nothing when you press its hotkey | It's limited to an app (**Only in app**) that isn't focused, or it has no hotkey. The status bar says which. |
+| Everything stopped by itself | The mouse touched a corner of the screen (emergency stop). Turn that off in Settings if it gets in the way. |
 | "Unknown key …" when saving | Check the spelling against the tables above. Steps are separated by spaces, so `left click` is two steps; write `left-click`. |
 | Some keys are skipped | Raise **Delay**, or add `{200}` pauses where the app is busy. |
 | A game ignores the keys | Raise **Hold** to 50–100 ms. Some games block simulated input entirely. |
