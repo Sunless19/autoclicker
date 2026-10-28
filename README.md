@@ -18,10 +18,14 @@ The app tells you when a new version is available.
 - Click interval from milliseconds to hours; left, right or middle button; single or double click
 - Repeat a set number of times or until stopped
 - Click at the cursor or at a fixed position, with **Pick location**
-- Key macros on a hotkey, e.g. `F7` → `V E L`, played once, N times or on a loop
+- Macros on a hotkey that mix keys, mouse clicks at fixed positions and pauses, e.g. `F7` → `V E L`, or `F8` → `V Click(500,300) {200} E`. Play them once, N times or on a loop.
+- Name your macros, e.g. "open spotify automated"
 - Global hotkeys (default **F6**) that work in any window
+- Runs in the background from the system tray
 
 ### Macro syntax
+
+📖 **[Read the Macro Guide](MACROS.md)**: a step-by-step walkthrough, every step type, examples and troubleshooting.
 
 | Step | Example | What it does |
 |------|---------|--------------|
@@ -29,6 +33,9 @@ The app tells you when a new version is available.
 | Combo | `Ctrl+C`, `Shift+Alt+F2` | Hold modifiers while pressing the key |
 | Pause | `{500}` | Wait 500 ms |
 | Text | `"gg wp"` | Type the text exactly as written |
+| Click | `left-click`, `left-click(500,300)` | Click where the pointer is, or at a position |
+| Other clicks | `right-click(x,y)`, `double-click(x,y)`, `middle-click(x,y)` | Same, with other buttons |
+| Move | `Move(500,300)` | Move the pointer without clicking |
 
 ## Note
 
